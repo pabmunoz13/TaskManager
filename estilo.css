@@ -1,0 +1,33 @@
+
+div
+{
+display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boton {
+  background-color: #E7F6F6;
+  padding: 1%; /* Some padding */
+  display: block; /* Make the buttons appear below each other */
+  margin:auto;
+  margin-top : 1%;
+  border-radius: 10px;
+}
+
+h1{
+text-align:center;
+}
+.contenedor1 {
+margin-top: 5%;
+display:block;
+text-align: center;
+}
+.contenedor2 {
+margin-top: 5%;
+display:block;
+text-align: center;
+}
+/*position:relative;
+      top:50%;
+      left:50%;*/
