@@ -15,6 +15,13 @@ display: flex;
   border-radius: 10px;
 }
 
+.boton_tarea {
+  background-color: #E7F6F6;
+  padding: 1%; /* Some padding */
+  margin:0.5%;
+  border-radius: 10px;
+}
+
 h1{
 text-align:center;
 }
@@ -27,6 +34,30 @@ text-align: center;
 margin-top: 5%;
 display:block;
 text-align: center;
+}
+
+.contenedor3 {
+margin-top: 2%;
+display:none;
+text-align: center;
+}
+
+.contenedor4 {
+text-align: center;
+padding:1%;
+  display:top
+}
+
+.contenedor5 {
+margin-top: 2%;
+display:none;
+text-align: center;
+}
+
+.contenedor6 {
+text-align: center;
+padding:1%;
+  display:top
 }
 /*position:relative;
       top:50%;
