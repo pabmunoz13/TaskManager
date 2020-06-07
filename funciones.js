@@ -31,7 +31,7 @@ function guardar() {
     node.setAttribute("value",nombre.value);
     node.setAttribute("name",nombre.value);
     node.setAttribute("class","boton");
-    node.setAttribute("onClick","editarTarea()");
+    node.setAttribute("onClick","editarTarea('"+id+"')");
     div.appendChild(node);
 
     /*DIV CONTENEDOR DE BOTONES*/
@@ -44,11 +44,13 @@ function guardar() {
     var node3 = document.createElement("input");
     node3.setAttribute("type","text");
     node3.setAttribute("id","textoTarea"+id);
-    nodo2.appendChild(node3);
+    document.getElementById("div"+id).appendChild(node3);
 
     /*DIV FUNCIONALIDAD*/
     var node4 = document.createElement("div");
     node4.setAttribute("class","contenedor6");
+    node4.setAttribute("id","func"+id);
+    document.getElementById("div"+id).appendChild(node4);
 
     /*BOTON ELIMINAR*/
     var node5 = document.createElement("input");
@@ -56,7 +58,7 @@ function guardar() {
     node5.setAttribute("value","Eliminar");
     node5.setAttribute("class","boton_tarea");
     node5.setAttribute("onClick","eliminarTarea('"+id+"')");
-    node4.appendChild(node5);
+    document.getElementById("func"+id).appendChild(node5);
 
     /*BOTON CANCELAR*/
     var node6 = document.createElement("input");
@@ -64,7 +66,7 @@ function guardar() {
     node6.setAttribute("value","Cancelar");
     node6.setAttribute("class","boton_tarea");
     node6.setAttribute("onClick","cancelarTarea('"+id+"')");
-    node4.appendChild(node6);
+    document.getElementById("func"+id).appendChild(node6);
 
     /*BOTON GUARDAR*/
     var node7 = document.createElement("input");
@@ -72,11 +74,11 @@ function guardar() {
     node7.setAttribute("value","Guardar");
     node7.setAttribute("class","boton_tarea");
     node7.setAttribute("onClick","guardarTarea('"+id+"')");
-    node4.appendChild(node7);
+    document.getElementById("func"+id).appendChild(node7);
 
-    nodo2.appendChild(node4);
+ //   nodo2.appendChild(node4);
 
-    div.appendChild(node2);
+   // div.appendChild(node2);
 /*    <input type="button" onclick="editarTarea()" class="boton" id="4" type="button" value="Tarea4"></input>
                 <div id="div4" class="contenedor5">
                     <input type="text" id="textoTarea4"></input>
@@ -129,7 +131,7 @@ function eliminarTarea(id) {
   divPadre.removeChild(divHijo);
 }
 
-function cacelarTarea(id) {
+function cancelarTarea(id) {
   var x = document.getElementById("div"+id);
   if (x.style.display === "block") {
     x.style.display = "none";
