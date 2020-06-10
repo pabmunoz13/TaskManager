@@ -11,6 +11,7 @@ window.onload=function cargar(){
         });
       });
     }
+
     var boton1 = "Tarea 1";
     var boton2 = "Tarea 2";
 
