@@ -1,24 +1,10 @@
 /* eslint strict: 0 */
 
 'use strict';
-self.addEventListener('fetch', event => {
-    console.log("evento "+event);
-})
-// on push create notification
-self.addEventListener('push', event => {
-	const pushedData = event.data.json();
-
-	event.waitUntil(
-		self.registration.showNotification(pushedData.title, pushedData.options)
-	);
+self.addEventListener('install', event => {
+    console.log("evento install "+event);
 });
 
-// on notification click open related url
-self.addEventListener('notificationclick', event => {
-	const data = event.notification.data;
-
-	if (data && data.url) {
-		event.notification.close();
-		self.clients.openWindow(data.url);
-	}
+self.addEventListener('fetch', event => {
+    console.log("evento fetch "+event);
 });

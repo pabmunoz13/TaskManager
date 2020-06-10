@@ -1,8 +1,8 @@
 {
   "short_name": "TaskManager",
   "name": "TaskManager: organize your jobs",
-  "description": "Taskmager",
-  "start_url": "/",
+  "description": "TaskManager",
+  "start_url": "/TaskManager/",
   "background_color": "#E7F6F6",
   "display": "standalone",
   "scope": "/",
