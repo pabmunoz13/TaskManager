@@ -1,10 +1,13 @@
 window.onload=function cargar(){
 
+
     var boton1 = "Tarea 1";
     var boton2 = "Tarea 2";
 
     localStorage.setItem("boton1", boton1);
     localStorage.setItem("boton2", boton2);
+
+
     cargarEtiquetas();
 }
 
