@@ -15,8 +15,9 @@ self.addEventListener('install', event => {
     caches.open(CACHE).then(cache => {
     return cache.addAll(urls)
     .then(()=>self.skipWaiting())})
-    )
     .catch(err=> console.log('fallo registro caché', err))
+    )
+
 });
 
 self.addEventListener('activate', event => {
