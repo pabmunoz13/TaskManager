@@ -105,11 +105,20 @@ function cargarEtiquetas(){
 
 function guardar() {
     var nombre = document.getElementById("texto");
+
     var div = document.getElementById("bot");
 
-    var lastChildID = document.getElementById("bot").lastElementChild.id;
-    var valor = lastChildID.substr(lastChildID.length-1, lastChildID.length);
-    var id = parseInt(valor)+1;
+    var lastChildID = document.getElementById("bot").lastChild.id;
+
+
+    if(lastChildID !== undefined){
+
+        var valor = lastChildID.substr(lastChildID.length-1, lastChildID.length);
+        var id = parseInt(valor)+1;
+
+    }else{
+        var id = 1;
+    }
 
     /*BOTON!*/
     var node = document.createElement("input");
@@ -164,6 +173,7 @@ function guardar() {
     document.getElementById("func"+id).appendChild(node7);
 
     localStorage.setItem("boton"+id, nombre.value);
+    nombre.value = "";
 }
 
 function addTarea() {
@@ -218,4 +228,5 @@ function guardarTarea(id) {
     document.getElementById(id).value = document.getElementById(idf).value;
 
     localStorage.setItem("boton"+id, document.getElementById(idf).value);
+    document.getElementById(idf).value = "";
 }
