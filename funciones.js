@@ -12,26 +12,25 @@
 
 window.onload=function cargar(){
 
-
-
+    var keys = JSON.parse(localStorage.getItem("botones"));
+    console.log("ke lleva"+keys);
     var boton1 = "Tarea 1";
     var boton2 = "Tarea 2";
-
-    localStorage.setItem("boton1", boton1);
-    localStorage.setItem("boton2", boton2);
-
-
+    var botones = [boton1,boton2];
+    if(keys == null){
+        localStorage.setItem("botones", JSON.stringify(botones));
+    }
     cargarEtiquetas();
 }
 
 function cargarEtiquetas(){
 
-    var keys = Object.keys(localStorage);
+   // var keys = Object.keys(localStorage);
+    var keys = JSON.parse(localStorage.getItem("botones"));
     for (var a in keys){
 
-         console.log(a, ' = ', localStorage.key(a));
-         var nombre =localStorage.getItem(localStorage.key(a));
-         console.log("**"+nombre);
+         var nombre = keys[a];
+         console.log("*****"+nombre);
          var div = document.getElementById("bot");
 
          var lastChildID = document.getElementById("bot").lastChild.id;
@@ -172,7 +171,9 @@ function guardar() {
     node7.setAttribute("onClick","guardarTarea('"+id+"')");
     document.getElementById("func"+id).appendChild(node7);
 
-    localStorage.setItem("boton"+id, nombre.value);
+    var keys = JSON.parse(localStorage.getItem("botones"));
+    keys.push(nombre.value);
+    localStorage.setItem("botones", JSON.stringify(keys));
     nombre.value = "";
 }
 
@@ -213,7 +214,10 @@ function eliminarTarea(id) {
   var divHijo = document.getElementById("div"+id);
   divPadre.removeChild(input);
   divPadre.removeChild(divHijo);
-  localStorage.removeItem("boton"+id);
+    id = parseInt(id) - 1;
+  var keys = JSON.parse(localStorage.getItem("botones"));
+    keys.splice(id, 1);
+    localStorage.setItem("botones", JSON.stringify(keys));
 }
 
 function cancelarTarea(id) {
@@ -227,6 +231,11 @@ function guardarTarea(id) {
     var idf = "textoTarea"+id;
     document.getElementById(id).value = document.getElementById(idf).value;
 
-    localStorage.setItem("boton"+id, document.getElementById(idf).value);
+    id = parseInt(id) - 1;
+    var keys = JSON.parse(localStorage.getItem("botones"));
+    keys[id]= document.getElementById(idf).value;
+    localStorage.setItem("botones", JSON.stringify(keys));
+
+    //localStorage.setItem("boton"+id, document.getElementById(idf).value);
     document.getElementById(idf).value = "";
 }
